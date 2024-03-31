@@ -21,6 +21,8 @@
     "stop_error_not_last": "❌ 错误！只能放弃最后一个请求！",
     "stop_error": "❌ 错误！无法停止生成！",
     "response_link_format": "\n📄 {source_name}: {link}",
+    "suggestion_format": "💡 {suggestion:.32}",
+    "suggestion_error": "❌ 可能只能使用最后一条消息中提出的请求！",
     "users_read_error": "❌ 读取或解析用户列表时出错！",
     "users_admin": "封禁? 管理? 语言 模块 ID 名字- 请求数\n\n{users_data}",
     "restarting": "🙏 正在重启中...\n请稍等",
@@ -58,6 +60,10 @@
         "lmao_chatgpt": {
             "icon": "💬",
             "name": "ChatGPT (LMAO API)"
+        },
+        "lmao_ms_copilot": {
+            "icon": "🔵",
+            "name": "MS Copilot (LMAO API)"
         },
         "chatgpt": {
             "icon": "💬",

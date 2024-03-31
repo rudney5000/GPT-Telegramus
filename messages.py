@@ -50,6 +50,8 @@ _LANG_FILE_KEYS = [
     "stop_error_not_last",
     "stop_error",
     "response_link_format",
+    "suggestion_format",
+    "suggestion_error",
     "users_read_error",
     "users_admin",
     "restarting",

@@ -21,6 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import logging
 import multiprocessing
 import queue
+import random
+import string
 import threading
 import time
 from typing import Dict
@@ -161,8 +163,9 @@ def lmao_process_loop(
                 with lmao_module_status.get_lock():
                     lmao_module_status.value = STATUS_BUSY
 
-                # Currently LMAO API can only handle text requests
+                # Extract request
                 prompt_text = request_response.request_text
+                prompt_image = request_response.request_image
 
                 # Check prompt
                 if not prompt_text:
@@ -171,16 +174,49 @@ def lmao_process_loop(
                     # Extract conversation ID
                     conversation_id = users_handler_.get_key(request_response.user_id, name + "_conversation_id")
 
-                    # Build request
                     module_request = {"prompt": prompt_text, "convert_to_markdown": True}
+
+                    # Extract style (for lmao_ms_copilot only)
+                    if name == "lmao_ms_copilot":
+                        style = users_handler_.get_key(request_response.user_id, "ms_copilot_style", "balanced")
+                        module_request["style"] = style
+
+                    # Add image and conversation ID
+                    if prompt_image is not None:
+                        module_request["image"] = prompt_image
                     if conversation_id:
                         module_request["conversation_id"] = conversation_id
+
+                    # Reset suggestions
+                    users_handler_.set_key(request_response.user_id, "suggestions", [])
 
                     # Ask and read stream
                     for response in module.ask(module_request):
                         finished = response.get("finished")
                         conversation_id = response.get("conversation_id")
                         request_response.response_text = response.get("response")
+
+                        images = response.get("images")
+                        if images is not None:
+                            request_response.response_images = images[:]
+
+                        # Suggestions must be stored as tuples with unique ID for reply-markup
+                        if finished:
+                            suggestions = response.get("suggestions")
+                            if suggestions is not None:
+                                request_response.response_suggestions = []
+                                for suggestion in suggestions:
+                                    id_ = "".join(
+                                        random.choices(
+                                            string.ascii_uppercase + string.ascii_lowercase + string.digits, k=8
+                                        )
+                                    )
+                                    request_response.response_suggestions.append((id_, suggestion))
+                                users_handler_.set_key(
+                                    request_response.user_id,
+                                    "suggestions",
+                                    request_response.response_suggestions,
+                                )
 
                         # Read module's status
                         with lmao_module_status.get_lock():

@@ -383,6 +383,45 @@ class BotHandler:
                     context,
                 )
 
+            # Send suggestion
+            elif action == "suggestion":
+                # Get last message ID
+                reply_message_id_last = self.users_handler.get_key(0, "reply_message_id_last", user=user)
+                if reply_message_id_last is None or reply_message_id_last != reply_message_id:
+                    await _send_safe(
+                        user_id,
+                        self.messages.get_message("suggestion_error", lang_id=lang_id),
+                        context,
+                    )
+                    return
+
+                # Get module name and suggestion id
+                data_parts_ = data_.split("_")
+                suggestion_id = data_parts_[-1]
+                module_name_ = data_parts_[:-1]
+
+                # Find suggestion
+                suggestions = self.users_handler.get_key(0, "suggestions", user=user, default_value=[])
+                suggestion = None
+                for suggestion_id_, suggestion_ in suggestions:
+                    if suggestion_id_ == suggestion_id:
+                        suggestion = suggestion_
+                        break
+
+                # Check
+                if not suggestion:
+                    await _send_safe(user_id, f"Error! No suggestion with ID {suggestion_id} saved", context)
+                    return
+
+                # Ask
+                await self._bot_module_request_raw(
+                    module_name_,
+                    suggestion,
+                    user_id,
+                    reply_message_id_last,
+                    context,
+                )
+
             # Stop generating
             elif action == "stop":
                 # Get last message ID
