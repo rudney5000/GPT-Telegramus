@@ -207,9 +207,9 @@ def lmao_process_loop(
                                 "response_link_format", user_id=request_response.user_id
                             )
                             request_response.response_text += "\n"
-                            for attribution in attributions:
+                            for i, attribution in enumerate(attributions):
                                 request_response.response_text += response_link_format.format(
-                                    source_name=attribution.get("name", ""), link=attribution.get("url", "")
+                                    source_name=str(i + 1), link=attribution.get("url", "")
                                 )
 
                         # Suggestions must be stored as tuples with unique ID for reply-markup
