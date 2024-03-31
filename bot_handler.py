@@ -398,7 +398,7 @@ class BotHandler:
                 # Get module name and suggestion id
                 data_parts_ = data_.split("_")
                 suggestion_id = data_parts_[-1]
-                module_name_ = data_parts_[:-1]
+                module_name_ = "_".join(data_parts_[:-1])
 
                 # Find suggestion
                 suggestions = self.users_handler.get_key(0, "suggestions", user=user, default_value=[])

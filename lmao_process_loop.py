@@ -200,6 +200,18 @@ def lmao_process_loop(
                         if images is not None:
                             request_response.response_images = images[:]
 
+                        # Format and add attributions
+                        attributions = response.get("attributions")
+                        if attributions is not None and len(attributions) != 0:
+                            response_link_format = messages_.get_message(
+                                "response_link_format", user_id=request_response.user_id
+                            )
+                            request_response.response_text += "\n"
+                            for attribution in attributions:
+                                request_response.response_text += response_link_format.format(
+                                    source_name=attribution.get("name", ""), link=attribution.get("url", "")
+                                )
+
                         # Suggestions must be stored as tuples with unique ID for reply-markup
                         if finished:
                             suggestions = response.get("suggestions")

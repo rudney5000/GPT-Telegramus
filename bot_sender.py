@@ -219,7 +219,7 @@ def build_markup(
         buttons.append(button_clear)
 
     # Add change style button for MS Copilot
-    if request_response.module_name == "ms_copilot":
+    if request_response.module_name == "ms_copilot" or request_response.module_name == "lmao_ms_copilot":
         button_style = InlineKeyboardButton(
             messages_.get_message("button_style_change", user_id=user_id),
             callback_data=f"style||{request_response.reply_message_id}",
