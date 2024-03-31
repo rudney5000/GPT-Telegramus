@@ -21,7 +21,7 @@
     "stop_error_not_last": "❌ Error! Can only abort the last request!",
     "stop_error": "❌ Error! Can not stop generating!",
     "response_link_format": "\n📄 {source_name}: {link}",
-    "suggestion_format": "💡 {suggestion:.32}",
+    "suggestion_format": "💡 {suggestion}",
     "suggestion_error": "❌ It is possible to use the suggested request only from the last message!",
     "users_read_error": "❌ Error reading or parsing list of users!",
     "users_admin": "Banned? Admin? Language Module ID Name - Requests\n\n{users_data}",

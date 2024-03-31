@@ -21,7 +21,7 @@
     "stop_error_not_last": "❌ Error! ¡Solo se puede detener la generación de la última solicitud!",
     "stop_error": "❌ Error! ¡No se puede detener la generación!",
     "response_link_format": "\n📄 {source_name}: {link}",
-    "suggestion_format": "💡 {suggestion:.32}",
+    "suggestion_format": "💡 {suggestion}",
     "suggestion_error": "❌ ¡Se puede utilizar la solicitud propuesta solo del último mensaje!",
     "users_read_error": "❌ ¡Error al leer o analizar la lista de usuarios!",
     "users_admin": "¿Baneado? ¿Admin? Idioma Módulo ID Nombre - Solicitudes\n\n{users_data}",

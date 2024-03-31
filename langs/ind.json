@@ -21,7 +21,7 @@
     "stop_error_not_last": "❌ Kesalahan! Hanya bisa menghentikan permintaan terakhir!",
     "stop_error": "❌ Kesalahan! Tidak dapat menghentikan penghasilan!",
     "response_link_format": "\n📄 {source_name}: {link}",
-    "suggestion_format": "💡 {suggestion:.32}",
+    "suggestion_format": "💡 {suggestion}",
     "suggestion_error": "❌ Mungkin menggunakan permintaan yang diajukan hanya dari pesan terakhir!",
     "users_read_error": "❌ Kesalahan membaca atau menguraikan daftar pengguna!",
     "users_admin": "Dilarang? Admin? Bahasa Modul ID Nama - Permintaan\n\n{users_data}",

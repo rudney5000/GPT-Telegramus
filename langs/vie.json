@@ -21,7 +21,7 @@
     "stop_error_not_last": "❌ Lỗi! Chỉ có thể hủy bỏ yêu cầu cuối cùng!",
     "stop_error": "❌ Lỗi! Không thể dừng quá trình tạo ra!",
     "response_link_format": "\n📄 {source_name}: {link}",
-    "suggestion_format": "💡 {suggestion:.32}",
+    "suggestion_format": "💡 {suggestion}",
     "suggestion_error": "❌ Có thể sử dụng yêu cầu được đề xuất chỉ từ tin nhắn cuối cùng!",
     "users_read_error": "❌ Lỗi đọc hoặc phân tích cú pháp danh sách người dùng!",
     "users_admin": "Bị cấm? Quản trị viên? Mô-đun ngôn ngữ ID Tên - Yêu cầu\n\n{users_data}",
