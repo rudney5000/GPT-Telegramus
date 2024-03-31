@@ -103,9 +103,13 @@ See **🐧 Running as service on linux**, **🍓 Running on Raspberry Pi (ARM)**
   - Supports conversation style `/style`
   - Stream response support
   - Chat history support
-  - Web-browsing (probably) and sources support
-  - Unfortunately, it can't accept images as input yet, nor can it generate them. Please use **Microsoft Copilot Designer** to generate images
-- **Microsoft Copilot Designer**
+  - Web-browsing (probably) and sources (attributions) support
+  - Accepts image requests (for **lmao_ms_copilot** only)
+  - Send generated images (for **lmao_ms_copilot** only)
+  - Suggestions (for **lmao_ms_copilot** only)
+  - See <https://github.com/F33RNI/LlM-Api-Open> for more info
+  - **NOTE:** Non-LMAO API (the old one `ms_copilot`) is deprecated! Please use `lmao_ms_copilot` instead
+- *Microsoft Copilot Designer* (**DEPRECATED**)
   - Bing Image Generator. Used as a separate module due to issues with the EdgeGPT module
   - Free and unlimited
 - **Gemini**
