@@ -388,11 +388,7 @@ class BotHandler:
                 # Get last message ID
                 reply_message_id_last = self.users_handler.get_key(0, "reply_message_id_last", user=user)
                 if reply_message_id_last is None or reply_message_id_last != reply_message_id:
-                    await _send_safe(
-                        user_id,
-                        self.messages.get_message("suggestion_error", lang_id=lang_id),
-                        context,
-                    )
+                    await _send_safe(user_id, self.messages.get_message("suggestion_error", lang_id=lang_id), context)
                     return
 
                 # Get module name and suggestion id
@@ -410,7 +406,8 @@ class BotHandler:
 
                 # Check
                 if not suggestion:
-                    await _send_safe(user_id, f"Error! No suggestion with ID {suggestion_id} saved", context)
+                    logging.warning(f"No suggestion with ID {suggestion_id} saved")
+                    await _send_safe(user_id, self.messages.get_message("suggestion_error", lang_id=lang_id), context)
                     return
 
                 # Ask
