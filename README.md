@@ -232,6 +232,7 @@ See **🐧 Running as service on linux**, **🍓 Running on Raspberry Pi (ARM)**
 - 🇺🇦 Українська
 - فارسی 🇮🇷
 - 🇪🇸 Español
+- 🇻🇳 Vietnamese
 
 You can add **a new language**. For that:
 
