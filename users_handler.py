@@ -183,6 +183,10 @@ class UsersHandler:
             if module == "ms_copilot" and "lmao_ms_copilot" in self.config:
                 module = "lmao_ms_copilot"
 
+            # Fallback to a legacy API
+            elif module == "lmao_ms_copilot" and "lmao_ms_copilot" not in self.config and "ms_copilot" in self.config:
+                module = "ms_copilot"
+
             # Fix MS Copilot designer
             if module == "ms_copilot_image_creator" and "lmao_ms_copilot" in self.config:
                 module = "lmao_ms_copilot"
