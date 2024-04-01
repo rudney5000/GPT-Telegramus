@@ -218,6 +218,8 @@ def lmao_process_loop(
                             if suggestions is not None:
                                 request_response.response_suggestions = []
                                 for suggestion in suggestions:
+                                    if not suggestion or len(suggestion) < 1:
+                                        continue
                                     id_ = "".join(
                                         random.choices(
                                             string.ascii_uppercase + string.ascii_lowercase + string.digits, k=8
