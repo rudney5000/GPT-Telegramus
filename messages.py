@@ -54,6 +54,7 @@ _LANG_FILE_KEYS = [
     "suggestion_error",
     "users_read_error",
     "users_admin",
+    "users_total_stats",
     "restarting",
     "restarting_done",
     "chat_cleared",

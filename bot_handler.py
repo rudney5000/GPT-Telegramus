@@ -1446,18 +1446,24 @@ class BotHandler:
             database, key=lambda user: self.users_handler.get_key(0, "requests_total", 0, user=user), reverse=True
         )
 
+        # Counters
+        users_banned_counter = 0
+        users_admin_counter = 0
+
         # Add them to message
         message = ""
         module_default = self.config.get("modules").get("default")
         for user_ in database:
             # Banned?
             if self.users_handler.get_key(0, "banned", False, user=user_):
+                users_banned_counter += 1
                 message += self.config.get("telegram").get("banned_symbol", "B") + " "
             else:
                 message += self.config.get("telegram").get("non_banned_symbol", " ") + " "
 
             # Admin?
             if self.users_handler.get_key(0, "admin", False, user=user_):
+                users_admin_counter += 1
                 message += self.config.get("telegram").get("admin_symbol", "A") + " "
             else:
                 message += self.config.get("telegram").get("non_admin_symbol", " ") + " "
@@ -1500,6 +1506,14 @@ class BotHandler:
 
         # Format final message
         message = self.messages.get_message("users_admin", lang_id=lang_id).format(users_data=message)
+
+        # Add total stats
+        users_total_stats_formatter = self.messages.get_message("users_total_stats", lang_id=lang_id)
+        message += "\n" + users_total_stats_formatter.format(
+            users_num=len(database),
+            banned_num=users_banned_counter,
+            admins_num=users_admin_counter,
+        )
 
         # Send as markdown
         await bot_sender.send_reply(self.config.get("telegram").get("api_key"), user_id, message, markdown=True)
