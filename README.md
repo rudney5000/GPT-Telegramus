@@ -25,11 +25,13 @@
 
 > 😔 Currently, GPT-Telegramus doesn't have paid ChatGPT and DALL-E support
 >
-> 📈 GPT-Telegramus v5 is an updated and highly refactored version of the old GPT-Telegramus. Updates coming soon....
+> 📈 GPT-Telegramus v5 is an updated and highly refactored version of the old GPT-Telegramus
 >
 > 📄 Documentation is also under development! Consider reading docstring for now
 >
 > 🐛 If you find a **bug** in GPT-Telegramus, please create an Issue
+>
+> p.s. Due to my studies, I don't have much time to work on the project 😔
 
 ----------
 
@@ -59,6 +61,15 @@
 - 💜 AnthroAsja - *Belarusian language*
 - 💜 Anonymous Samurai - *Ukrainian language*
 - 💜 Dunya Jafari - *Persian language*
+
+----------
+
+## 📨 Project channel and demo
+
+- You can join official project's Telegram channel <https://t.me/vestnik_labasera>
+- Also you can test GPT-Telegramus using official bot <https://t.me/labasyor3000_bot>
+
+⚠️ Please do not overload the bot and use it only as a demo version
 
 ----------
 
@@ -289,10 +300,9 @@ You can enable and configure data collection in `config.json` in `data_collectin
 
 ## 📝 TODO
 
-- Official (and paid) ChatGPT API
-- Official DALL-E API
-- Microsoft Copilot as part of LMAO API
-- Some free GPT-4 model
+- Paid version of ChatGPT
+- DALL-E (from OpenAI)
+- Some other LLMs (and maybe some free GPT-4 model)
 
 ----------
 
