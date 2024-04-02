@@ -124,6 +124,11 @@ def lmao_process_loop(
             except Exception as e:
                 logging.error("_lmao_stop_stream_loop error", exc_info=e)
 
+            # Read module's status
+            finally:
+                with lmao_module_status.get_lock():
+                    lmao_module_status.value = module.status
+
         # Done
         logging.info("_lmao_stop_stream_loop finished")
 
@@ -277,6 +282,9 @@ def lmao_process_loop(
                 except Exception as e:
                     logging.error(f"Error deleting conversation for {name}", exc_info=e)
                     lmao_delete_conversation_response_queue.put(e)
+                finally:
+                    with lmao_module_status.get_lock():
+                        lmao_module_status.value = module.status
 
         # Catch process interrupts just in case
         except (SystemExit, KeyboardInterrupt):
@@ -287,6 +295,11 @@ def lmao_process_loop(
         except Exception as e:
             logging.error(f"{name} error", exc_info=e)
             lmao_exceptions_queue.put(e)
+
+        # Read module's status
+        finally:
+            with lmao_module_status.get_lock():
+                lmao_module_status.value = module.status
 
     # Wait for stop handler to finish
     if stop_handler_thread and stop_handler_thread.is_alive():
@@ -305,6 +318,10 @@ def lmao_process_loop(
         logging.info(f"{name} closing finished")
     except Exception as e:
         logging.error(f"Error closing {name}", exc_info=e)
+
+    # Read module's status
+    with lmao_module_status.get_lock():
+        lmao_module_status.value = module.status
 
     # Done
     with lmao_process_running.get_lock():
