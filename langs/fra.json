@@ -3,7 +3,7 @@
     "language_icon": "🇫🇷",
     "language_select_error": "❌ Erreur de sélection de language!\n\n{error_text}",
     "language_select": "Veillez sélectionner la langue de l'interface",
-    "language_changed": "fr Vous avez choisi le Français\n\nVous pouvez changer de langue a tout moment en écrivant la commande /lang",
+    "language_changed": "🇫🇷 Vous avez choisi le Français\n\nVous pouvez changer de langue a tout moment en écrivant la commande /lang",
     "start_message": "Salut, 👋 choomba! 👋\n\n📄 GPT-Telegramus version {version}\n\n💜 Author: Fern (F3RNI)\n💻 Contributeurs:\n🤍 Keepalove (Azarell) (Sprav04ka)\n🤍 Hanssen\n🤍 https://github.com/F33RNI/GPT-Telegramus#-contributors\n\n😺 Page GitHub: https://github.com/F33RNI/GPT-Telegramus\n\n🎵 Soutenir le projet en achetant ma musique: https://f3rni.bandcamp.com",
     "help_message": "📄 /start - Message de bienvenue et version du bot\n❓ /help - Afficher ce message\n↕️ /module - Modifier le module de chat avec\n🧹 /clear - Effacer l'historique du chat\n🌎 /lang - Changer de langue\n🆔 /chatid - Afficher votre chat_id\n\nMaintenant, Pour commencer, envoyez-moi un message 💬",
     "help_message_admin": "Commandes de l'administrateur:\n\n💬 /queue - Afficher la file d'attente des requêtes\n🔃 /restart [module, optionnel] - Redémarrer le module (ou tous les modules), recharger la configuration, les langues et les commandes\n👤 /users - Afficher la liste de tous les utilisateurs\n🔨 /ban <id> [reason] - Bloquer un utilisateur par son id avec une raison (facultatif)\n🔓 /unban <id> - Debloquer un utilisateur par son id\n📢 /broadcast <message> - Envoyer un message à tous les utilisateurs, à l'exception des utilisateurs bloqués",
